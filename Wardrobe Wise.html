@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Wardrobe Wise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F4EC;--iv:#FFFDF8;--bei:#E8DDCC;--lb:#C8B69E;--db:#554536;--tx:#302820;--ln:rgba(85,69,54,.14);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1814;--iv:#27211b;--bei:#372e25;--lb:#7d6b57;--db:#e6d6bd;--tx:#f1e9dc;--ln:rgba(230,214,189,.16)}}
+:root[data-theme="dark"]{--bg:#1d1814;--iv:#27211b;--bei:#372e25;--lb:#7d6b57;--db:#e6d6bd;--tx:#f1e9dc;--ln:rgba(230,214,189,.16)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.08;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,6vw,4.6rem)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.5rem}p{margin:0}
+button,select,input{font:inherit;color:inherit}:focus-visible{outline:2px solid var(--db);outline-offset:3px}
+.w{max-width:1160px;margin:0 auto;padding:0 22px}.sec{padding:84px 0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+header .w{display:flex;align-items:center;gap:26px;height:68px}
+.logo{font:600 1.45rem "Cormorant Garamond",serif;letter-spacing:.14em;color:var(--db);cursor:pointer;margin-right:auto;background:none;border:0}
+nav{display:flex;gap:24px;align-items:center}nav a{cursor:pointer;font-size:.93rem;color:var(--tx);opacity:.8;text-decoration:none;background:none;border:0}nav a:hover,nav a.on{opacity:1;color:var(--db);font-weight:600}
+.burger{display:none}
+.btn{display:inline-block;border-radius:999px;padding:12px 24px;border:1px solid var(--db);background:var(--db);color:var(--iv);cursor:pointer;font-weight:500;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(85,69,54,.2)}.btn.o{background:transparent;color:var(--db)}.btn.s{padding:7px 16px;font-size:.88rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:64px 0 40px}
+.hero p.lead{font-size:1.15rem;max-width:30em;margin:22px 0 30px;opacity:.85}.row{display:flex;gap:12px;flex-wrap:wrap}
+.stage{position:relative;background:var(--bei);border-radius:260px 260px 28px 28px;padding:64px 34px 34px;aspect-ratio:4/5;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.stage svg{width:100%;height:100%}.float{position:absolute;left:-26px;bottom:44px;background:var(--iv);border-radius:18px;padding:16px 18px;box-shadow:0 14px 34px rgba(48,40,32,.16);max-width:230px}
+.float b{font:600 1.15rem "Cormorant Garamond",serif;display:block}.float small{opacity:.75}
+.sw{display:flex;gap:6px;margin-top:8px}.sw i{width:20px;height:20px;border-radius:50%;border:1px solid var(--ln)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:var(--iv);border:1px solid var(--ln);border-radius:22px;padding:28px;box-shadow:0 2px 14px rgba(48,40,32,.05)}
+.card p{opacity:.8;margin-top:10px}.alt{background:var(--iv);border-block:1px solid var(--ln)}
+.head{max-width:640px;margin-bottom:44px}.head p{margin-top:14px;opacity:.8}
+.step{border-top:2px solid var(--db);padding-top:18px}.step span{font:600 2.6rem "Cormorant Garamond",serif;color:var(--lb)}.step p{opacity:.8;margin-top:6px}
+.feat{border-left:2px solid var(--lb);padding:2px 0 2px 16px}.feat b{display:block}.feat span{font-size:.92rem;opacity:.75}
+.ben b{font:600 2rem "Cormorant Garamond",serif;color:var(--db);display:block}.ben span{opacity:.8}
+.cta{background:var(--db);color:var(--iv);border-radius:32px;text-align:center;padding:74px 24px}.cta p{margin:14px 0 28px;opacity:.85}.cta .btn{background:var(--bg);color:#554536;border-color:var(--bg)}
+footer{padding:36px 0;text-align:center;opacity:.7;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px}.tile{background:var(--bei);border-radius:16px;padding:10px;text-align:center;font-size:.8rem}
+.tile .v{aspect-ratio:1;display:grid;place-items:center}.tile img{width:100%;height:100%;object-fit:cover;border-radius:10px}.tile svg{width:82%;height:82%}.tile div.n{margin-top:6px;line-height:1.25}
+.page{padding:46px 0 70px}.top{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}.stat b{font:600 2.6rem "Cormorant Garamond",serif;color:var(--db);display:block;line-height:1}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:18px 0 22px}.tab{white-space:nowrap;border:1px solid var(--ln);background:var(--iv);border-radius:999px;padding:7px 16px;cursor:pointer}.tab.on{background:var(--db);color:var(--iv);border-color:var(--db)}
+.wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}.it{background:var(--iv);border:1px solid var(--ln);border-radius:20px;overflow:hidden;transition:transform .25s,box-shadow .25s}.it:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(48,40,32,.12)}
+.it .v{aspect-ratio:4/5;background:var(--bei);display:grid;place-items:center}.it img{width:100%;height:100%;object-fit:cover}.it svg{width:70%}.it .m{padding:12px 14px}.it .m b{display:block;font-weight:600}.it .m small{opacity:.75}
+.acts{display:flex;gap:6px;margin-top:8px}.acts button{flex:1;border:1px solid var(--ln);background:transparent;border-radius:10px;padding:4px;cursor:pointer;font-size:.82rem}
+.empty{text-align:center;padding:60px 20px;background:var(--iv);border:1px dashed var(--lb);border-radius:24px}.empty p{margin:10px 0 22px;opacity:.8}
+.gen{display:grid;grid-template-columns:340px 1fr;gap:28px;align-items:start}label{display:block;font-size:.85rem;font-weight:600;margin:14px 0 5px}
+select,input[type=text]{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--lb);background:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}.chip{border:1px solid var(--ln);background:var(--bg);border-radius:999px;padding:5px 13px;cursor:pointer;font-size:.88rem}.chip.on{background:var(--db);color:var(--iv)}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;border:1px solid var(--ln)}
+.prev{min-height:360px}.week{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.week h3{font-size:1.2rem;margin-bottom:10px}
+.pal{display:flex;height:60px;border-radius:14px;overflow:hidden;margin-bottom:10px}.pal i{flex:1}
+.mod{position:fixed;inset:0;background:rgba(30,24,18,.5);display:grid;place-items:center;z-index:50;padding:16px}.mod .card{width:min(440px,100%);max-height:92vh;overflow:auto}
+.up{border:1px dashed var(--lb);border-radius:14px;height:150px;display:grid;place-items:center;overflow:hidden;cursor:pointer;background:var(--bg)}.up img{width:100%;height:100%;object-fit:cover}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--db);color:var(--iv);padding:10px 20px;border-radius:999px;z-index:60}
+.sub{margin:44px 0 16px}
+@media(max-width:880px){.hero,.gen{grid-template-columns:1fr}.grid3,.grid4{grid-template-columns:1fr 1fr}.stage{max-width:420px;margin:auto}.float{left:8px}.sec{padding:60px 0}
+.burger{display:block;background:none;border:1px solid var(--ln);border-radius:10px;padding:6px 12px;cursor:pointer}nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px;border-bottom:1px solid var(--ln);align-items:flex-start}nav.open{display:flex}}
+@media(max-width:560px){.grid3,.grid4{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat{padding:14px}.stat b{font-size:1.8rem}}
+</style></head><body>
+<header><div class="w"><button class="logo" data-act="go" data-v="home">WARDROBE WISE</button>
+<nav id="nav"><a data-act="go" data-v="home" data-r="home">Home</a><a data-act="go" data-v="how" data-r="how">How It Works</a><a data-act="go" data-v="features" data-r="features">Features</a><a data-act="go" data-v="wardrobe" data-r="wardrobe">My Wardrobe</a><a data-act="go" data-v="generator" data-r="generator">Outfit Generator</a><a data-act="go" data-v="daily" data-r="daily">Daily Inspiration</a><a data-act="signin" id="si">Sign In</a></nav>
+<button class="btn s" data-act="go" data-v="wardrobe">Get Started</button><button class="burger" data-act="menu" aria-label="Menu">Menu</button></div></header>
+<main id="app"></main><div id="layer"></div>
+<script>
+const CATS=["Tops","Shirts","T-shirts","Pants","Jeans","Dresses","Skirts","Shoes","Accessories"];
+const COL={Black:"#1f1b17",White:"#f6f3ee",Cream:"#eadfc8",Beige:"#d2bd9d",Brown:"#7a5a3c",Grey:"#8d8b88",Navy:"#25324d",Denim:"#5a7da3",Olive:"#6f7350",Rust:"#a8553a",Rose:"#d9a5a0"};
+const NEUT=new Set(["Black","White","Cream","Beige","Brown","Grey","Navy","Denim"]);
+const OCCS=["Casual","Formal","College","Party","Traditional","Minimal","Office Wear"];
+const NO=(...x)=>CATS.filter(c=>!x.includes(c));
+const OCC={Casual:CATS,Formal:NO("T-shirts","Jeans"),College:NO("Dresses"),Party:NO("T-shirts","Shirts"),Traditional:NO("T-shirts","Jeans"),Minimal:CATS,"Office Wear":NO("T-shirts","Jeans")};
+const kind=c=>({Tops:"top",Shirts:"top","T-shirts":"top",Pants:"bottom",Jeans:"bottom",Skirts:"bottom",Dresses:"dress",Shoes:"shoes",Accessories:"acc"})[c];
+const P={"T-shirts":"M34 14 20 24 10 40l12 6 6-8v50h44V38l6 8 12-6-10-16-14-10Q50 26 34 14Z",Shirts:"M34 12 18 22l-8 40 12 2 6-26v52h44V38l6 26 12-2-8-40-16-10Q50 24 34 12Z",Tops:"M36 12 30 36l-4 52h48l-4-52-6-24Q50 30 36 12Z",Pants:"M30 10h40l4 80H54L50 36 46 90H26Z",Jeans:"M30 10h40l4 80H54L50 36 46 90H26Z",Skirts:"M34 14h32l18 74H16Z",Dresses:"M38 8h24l-4 28 22 54H20l22-54Z",Shoes:"M10 60l30-4 10 10 38 2q4 14-4 14H12Z"};
+function svg(cat,hex){const s='stroke="rgba(48,40,32,.35)" stroke-width="1.4" stroke-linejoin="round"';let b=cat==="Accessories"?`<path d="M24 44h52l6 44H18Z" fill="${hex}" ${s}/><path d="M36 44Q36 18 50 18T64 44" fill="none" ${s} stroke-width="3"/>`:`<path d="${P[cat]}" fill="${hex}" ${s}/>`;if(cat==="Jeans")b+='<path d="M50 36v54M32 18h36" stroke="rgba(255,255,255,.5)" fill="none" stroke-dasharray="3 2"/>';if(cat==="Shirts")b+='<path d="M40 14l10 14 10-14M50 28v60" stroke="rgba(48,40,32,.3)" fill="none"/>';return`<svg viewBox="0 0 100 100" aria-hidden="true">${b}</svg>`}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const SAMPLE=[["Cream silk shirt","Shirts","Cream"],["White tee","T-shirts","White"],["Black tank","Tops","Black"],["Olive trousers","Pants","Olive"],["Blue jeans","Jeans","Denim"],["Beige midi skirt","Skirts","Beige"],["Navy slacks","Pants","Navy"],["Rust wrap dress","Dresses","Rust"],["Tan loafers","Shoes","Brown"],["White sneakers","Shoes","White"],["Black heels","Shoes","Black"],["Brown leather bag","Accessories","Brown"],["Rose scarf","Accessories","Rose"]].map((a,i)=>({id:"s"+i,name:a[0],cat:a[1],color:a[2]}));
+let S={items:[],favs:[],name:""};try{const d=JSON.parse(localStorage.getItem("ww")||"null");if(d)S=Object.assign(S,d)}catch(e){}
+const save=()=>{try{localStorage.setItem("ww",JSON.stringify(S))}catch(e){toast("Storage is full. Remove a piece or use a smaller photo.")}};
+let UI={cat:"All",occ:"Casual",col:"",pin:{top:"",bottom:"",shoes:"",acc:""},out:null,m:null};
+const hex=i=>COL[i.color]||"#ccc";
+const vis=i=>i.img?`<img src="${i.img}" alt="${esc(i.name)}">`:svg(i.cat,hex(i));
+function rngFor(str){let h=1779033703;for(const c of str)h=Math.imul(h^c.charCodeAt(0),3432918353);let a=h>>>0;return()=>{a+=0x6D2B79F5;let t=a;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
+function gen(pool,occ,col,pin,rng){const ok=OCC[occ];let p=pool.filter(i=>ok.includes(i.cat)&&(occ!=="Minimal"||NEUT.has(i.color)));const by=k=>p.filter(i=>kind(i.cat)===k),get=id=>pool.find(i=>i.id===id);const pk=a=>a.length?a[Math.floor(rng()*a.length)]:null;let best=null,bs=-9;
+for(let n=0;n<50;n++){let t=pin.top?get(pin.top):null,b=pin.bottom?get(pin.bottom):null,d=null;const D=by("dress");
+if(!t&&!b&&D.length&&(rng()<.3||!by("top").length||!by("bottom").length))d=pk(D);else{t=t||pk(by("top"));b=b||pk(by("bottom"))}
+if(!d&&!(t&&b))continue;const sh=pin.shoes?get(pin.shoes):pk(by("shoes")),ac=pin.acc?get(pin.acc):(rng()<.7?pk(by("acc")):null);
+const items=[d||t,b,sh,ac].filter(Boolean),h=new Set(items.filter(i=>!NEUT.has(i.color)).map(i=>i.color)).size;
+let s=(h<=1?3:h==2?0:-4)+(col&&items.some(i=>i.color===col)?5:0)+rng()*2;if(s>bs){bs=s;best=items}}return best}
+const board=its=>`<div class="board">${its.map(i=>`<div class="tile"><div class="v">${vis(i)}</div><div class="n">${esc(i.name)}</div></div>`).join("")}</div>`;
+const pool=()=>S.items.length>=4?S.items:SAMPLE;
+const key=o=>o.map(i=>i.id).join(",");
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+const route=()=>(location.hash.slice(1)||"home");
+const todayStr=()=>new Date().toISOString().slice(0,10);
+function home(){const ex=[["Casual","Weekend walk"],["Office Wear","Monday meeting"],["Party","Dinner out"]].map(([o,l],i)=>({l,o:gen(SAMPLE,o,"",{},rngFor("ex"+o+i))})).filter(x=>x.o);
+return`<div class="w"><section class="hero"><div><h1>Your Wardrobe Is Full. Your Outfit Options Are Endless.</h1><p class="lead">Discover new outfit combinations using the clothes you already own. Save money, save time, and make every outfit count.</p><div class="row"><button class="btn" data-act="go" data-v="wardrobe">Explore My Wardrobe</button><button class="btn o" data-act="go" data-v="how">How It Works</button></div><p style="margin-top:26px;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--db)">More Outfits. Less Shopping. Endless Style.</p></div>
+<div class="stage">${svg("Shirts","#eadfc8")}${svg("Pants","#6f7350")}${svg("Accessories","#7a5a3c")}${svg("Shoes","#d2bd9d")}<div class="float"><b>Today’s Outfit Inspiration</b><small>Cream shirt, olive trousers, tan loafers</small><div class="sw"><i style="background:#eadfc8"></i><i style="background:#6f7350"></i><i style="background:#d2bd9d"></i></div></div></div></section></div>
+<section class="sec alt"><div class="w"><div class="head"><h2>Do You Really Have Nothing to Wear?</h2></div><div class="grid3">
+<div class="card"><h3>Too Many Clothes, Too Few Ideas</h3><p>The closet is packed, yet the same three outfits keep coming back because pairings are hard to see.</p></div>
+<div class="card"><h3>Spending Too Much on New Clothes</h3><p>Buying something new feels like the fix, but most of the time you already own what would complete the look.</p></div>
+<div class="card"><h3>Wasting Time Choosing Everyday Outfits</h3><p>Standing in front of the wardrobe every morning costs minutes you would rather spend elsewhere.</p></div></div></div></section>
+<section class="sec"><div class="w"><div class="head"><h2>Your Existing Clothes. A Whole New World of Outfits.</h2><p>Wardrobe Wise turns the pieces you own into a catalogue of combinations. These three looks come from the same 13 sample pieces.</p></div><div class="grid3">${ex.map(x=>`<div class="card"><h3 style="margin-bottom:14px">${x.l}</h3>${board(x.o)}</div>`).join("")}</div></div></section>
+<section class="sec alt" id="how"><div class="w"><div class="head"><h2>How It Works</h2></div><div class="grid3">
+<div class="step"><span>1</span><h3>Upload Your Clothes</h3><p>Add pictures of your shirts, pants, dresses, shoes, and accessories.</p></div>
+<div class="step"><span>2</span><h3>Organize Your Wardrobe</h3><p>Sort every piece by category and color so it is easy to find.</p></div>
+<div class="step"><span>3</span><h3>Discover New Outfits</h3><p>Generate combinations from the clothes you have, filtered by occasion and color.</p></div></div></div></section>
+<section class="sec" id="features"><div class="w"><div class="head"><h2>Everything you need to style what you own</h2></div><div class="grid4">
+${[["Digital Wardrobe","Every piece, photographed and in one place."],["Smart Outfit Generator","Rule-based pairing by category, color, and occasion."],["Daily Outfit Suggestions","A fresh look each morning from your own clothes."],["Save Favourite Combinations","Keep the looks you love and remove them any time."],["Outfit Calendar","A week of outfits planned in advance."],["Clothing Category Management","Tops, jeans, dresses, shoes, and more."],["Color-Based Outfit Matching","Neutrals anchor the look, one accent color at most."],["Budget-Friendly Styling","No purchases needed to get new outfits."]].map(f=>`<div class="feat"><b>${f[0]}</b><span>${f[1]}</span></div>`).join("")}</div></div></section>
+<section class="sec alt"><div class="w"><div class="grid4">${[["Save money","Avoid unnecessary shopping."],["Save time","Find outfits quickly."],["Look stylish","Discover new combinations."],["Shop smarter","Make better use of existing clothes."]].map(b=>`<div class="ben"><b>${b[0]}</b><span>${b[1]}</span></div>`).join("")}</div></div></section>
+<section class="sec"><div class="w"><div class="cta"><h2>Stop Buying More. Start Styling Better.</h2><p>Your next favourite outfit might already be in your wardrobe.</p><button class="btn" data-act="go" data-v="wardrobe">Start Your Wardrobe Journey</button></div></div></section><footer>Wardrobe Wise. Your data stays in this browser.</footer>`}
+function wardrobe(){const its=S.items,list=UI.cat==="All"?its:its.filter(i=>i.cat===UI.cat),recent=[...its].slice(-4).reverse(),sg=its.length>=4?gen(its,"Casual","",{},rngFor(todayStr())):null;
+return`<div class="w page"><div class="top"><div><h2>${S.name?"Welcome back, "+esc(S.name):"Welcome to your wardrobe"}</h2><p style="opacity:.75">Add the clothes you own, then let the generator pair them.</p></div><div class="row"><button class="btn" data-act="add">Add clothing</button><button class="btn o" data-act="go" data-v="generator">Generate outfits</button></div></div>
+<div class="stats"><div class="card stat"><b>${its.length}</b>Clothing items</div><div class="card stat"><b>${S.favs.length}</b>Saved outfits</div><div class="card stat"><b>${new Set(its.map(i=>i.cat)).size}</b>Categories in use</div></div>
+${its.length?`<div class="grid3" style="grid-template-columns:1fr 1fr;align-items:start"><div class="card"><h3 style="margin-bottom:12px">Recently added</h3><div class="board">${recent.map(i=>`<div class="tile"><div class="v">${vis(i)}</div><div class="n">${esc(i.name)}</div></div>`).join("")}</div></div><div class="card"><h3 style="margin-bottom:12px">Outfit suggestion for today</h3>${sg?board(sg):"<p>Add a top, a bottom, or a dress to see suggestions.</p>"}</div></div>`:""}
+<h3 class="sub">All clothes</h3><div class="tabs">${["All",...CATS].map(c=>`<button class="tab ${UI.cat===c?"on":""}" data-act="cat" data-v="${c}">${c}${c==="All"?"":" ("+its.filter(i=>i.cat===c).length+")"}</button>`).join("")}</div>
+${list.length?`<div class="wg">${list.map(i=>`<div class="it"><div class="v">${vis(i)}</div><div class="m"><b>${esc(i.name)}</b><small><span class="dot" style="background:${hex(i)}"></span>${i.color}, ${i.cat}</small><div class="acts"><button data-act="edit" data-v="${i.id}">Edit</button><button data-act="del" data-v="${i.id}">Delete</button></div></div></div>`).join("")}</div>`:`<div class="empty"><h3>${its.length?"Nothing in "+UI.cat+" yet":"Your wardrobe is empty"}</h3><p>Upload a photo of a piece you own, or load 13 sample pieces to try the generator first.</p><div class="row" style="justify-content:center"><button class="btn" data-act="add">Add clothing</button>${its.length?"":'<button class="btn o" data-act="samples">Load sample pieces</button>'}</div></div>`}</div>`}
+function generator(){const its=S.items,opt=k=>`<select data-pin="${k}"><option value="">Pick for me</option>${its.filter(i=>kind(i.cat)===k).map(i=>`<option value="${i.id}" ${UI.pin[k]===i.id?"selected":""}>${esc(i.name)}</option>`).join("")}</select>`;
+const o=UI.out,fk=o&&key(o),isF=o&&S.favs.some(f=>f.ids.join(",")===fk);
+return`<div class="w page"><div class="top"><h2>Outfit Generator</h2></div>${its.length<3?`<div class="empty"><h3>Add a few clothes first</h3><p>The generator needs at least a top and a bottom, or a dress.</p><div class="row" style="justify-content:center"><button class="btn" data-act="go" data-v="wardrobe">Go to My Wardrobe</button><button class="btn o" data-act="samples">Load sample pieces</button></div></div>`:`<div class="gen"><div class="card"><label>Occasion</label><div class="chips">${OCCS.map(c=>`<button class="chip ${UI.occ===c?"on":""}" data-act="occ" data-v="${c}">${c}</button>`).join("")}</div><label>Include a color</label><div class="chips"><button class="chip ${UI.col?"":"on"}" data-act="col" data-v="">Any</button>${[...new Set(its.map(i=>i.color))].map(c=>`<button class="chip ${UI.col===c?"on":""}" data-act="col" data-v="${c}"><span class="dot" style="background:${COL[c]}"></span>${c}</button>`).join("")}</div>
+<label>Top</label>${opt("top")}<label>Bottom</label>${opt("bottom")}<label>Shoes</label>${opt("shoes")}<label>Accessory</label>${opt("acc")}<button class="btn" style="width:100%;margin-top:22px" data-act="gen">Generate My Outfit</button></div>
+<div class="card prev">${o?`<div class="top" style="margin-bottom:14px"><h3>${UI.occ} outfit</h3><button class="btn s ${isF?"":"o"}" data-act="fav">${isF?"Saved. Remove":"Save outfit"}</button></div>${board(o)}`:UI.none?`<h3>No match found</h3><p style="margin-top:8px;opacity:.8">Try another occasion or color, or add a top and bottom (or a dress) that fit this occasion.</p>`:`<h3>Your outfit appears here</h3><p style="margin-top:8px;opacity:.8">Pick an occasion, pin any pieces you want, then press Generate My Outfit.</p>`}</div></div>`}
+<h3 class="sub">Favourite outfits</h3>${S.favs.length?`<div class="week">${S.favs.map((f,n)=>{const l=f.ids.map(id=>S.items.find(i=>i.id===id)||SAMPLE.find(i=>i.id===id)).filter(Boolean);return`<div class="card"><h3>${f.occ}</h3>${board(l)}<button class="btn o s" style="margin-top:12px" data-act="unfav" data-v="${n}">Remove</button></div>`}).join("")}</div>`:`<p style="opacity:.75">No saved outfits yet. Save one from the preview.</p>`}</div>`}
+function daily(){const p=pool(),d=new Date(),ds=todayStr(),t=gen(p,"Casual","",{},rngFor(ds)),days=[...Array(7)].map((_,i)=>{const x=new Date(d.getTime()+i*864e5),o=OCCS[i%OCCS.length];return{l:x.toLocaleDateString("en",{weekday:"long"}),o:o,g:gen(p,o,"",{},rngFor(x.toISOString().slice(0,10)+o))}});
+const pals=[["Cream + Olive + Tan",["#eadfc8","#6f7350","#d2bd9d"]],["Navy + White + Brown",["#25324d","#f6f3ee","#7a5a3c"]],["Black + Rose + Grey",["#1f1b17","#d9a5a0","#8d8b88"]],["Denim + Cream + Rust",["#5a7da3","#eadfc8","#a8553a"]]];
+const seas=[["Autumn and winter","Layer neutrals: cream shirts, brown shoes, navy bottoms.",["#eadfc8","#7a5a3c","#25324d"]],["Spring","Lighter tones: white tees with beige skirts and rose accents.",["#f6f3ee","#d2bd9d","#d9a5a0"]],["Summer","Denim with white and cream; keep accessories simple.",["#5a7da3","#f6f3ee","#eadfc8"]]];
+return`<div class="w page"><div class="top"><div><h2>Daily Outfit Inspiration</h2><p style="opacity:.75">${S.items.length>=4?"Built from your wardrobe.":"Built from sample pieces. Add your own clothes to personalise it."}</p></div></div>
+<div class="card"><h3 style="margin-bottom:14px">Today’s outfit, ${d.toLocaleDateString("en",{day:"numeric",month:"long"})}</h3>${t?board(t):""}</div>
+<h3 class="sub">Outfit of the week</h3><div class="week">${days.map(x=>`<div class="card"><h3>${x.l}, ${x.o}</h3>${x.g?board(x.g):"<p>No match for this occasion.</p>"}</div>`).join("")}</div>
+<h3 class="sub">Trending color combinations</h3><div class="grid4">${pals.map(a=>`<div><div class="pal">${a[1].map(c=>`<i style="background:${c}"></i>`).join("")}</div><b>${a[0]}</b></div>`).join("")}</div>
+<h3 class="sub">Seasonal outfit ideas</h3><div class="grid3">${seas.map(a=>`<div class="card"><div class="pal">${a[2].map(c=>`<i style="background:${c}"></i>`).join("")}</div><h3>${a[0]}</h3><p>${a[1]}</p></div>`).join("")}</div></div>`}
+function modal(){const m=UI.m;if(!m)return"";if(m.kind==="name")return`<div class="mod"><div class="card"><h3>Sign in</h3><p>Your wardrobe is saved in this browser. Enter a name to personalise it.</p><label>Your name</label><input type="text" id="nm" value="${esc(S.name)}"><div class="row" style="margin-top:18px"><button class="btn" data-act="savename">Save name</button><button class="btn o" data-act="close">Cancel</button></div></div></div>`;
+return`<div class="mod"><div class="card"><h3>${m.id?"Edit clothing":"Add clothing"}</h3><label>Photo</label><div class="up" id="up" data-act="pick">${m.img?`<img src="${m.img}" alt="">`:"<span>Click to upload a photo</span>"}</div><input type="file" id="file" accept="image/*" hidden>
+<label>Name</label><input type="text" id="fn" value="${esc(m.name||"")}" placeholder="e.g. Linen shirt"><label>Category</label><select id="fc">${CATS.map(c=>`<option ${m.cat===c?"selected":""}>${c}</option>`).join("")}</select><label>Color</label><select id="fcol">${Object.keys(COL).map(c=>`<option ${m.color===c?"selected":""}>${c}</option>`).join("")}</select>
+<div class="row" style="margin-top:20px"><button class="btn" data-act="saveitem">Save clothing</button><button class="btn o" data-act="close">Cancel</button></div></div></div>`}
+function render(){const r=route(),pg={home,how:home,features:home,wardrobe,generator,daily}[r]||home;$("#app").innerHTML=pg();$("#layer").innerHTML=modal();document.querySelectorAll("nav a[data-r]").forEach(a=>a.classList.toggle("on",a.dataset.r===r||(r==="home"&&a.dataset.r==="home")));$("#si").textContent=S.name?"Hi, "+S.name:"Sign In";$("#nav").classList.remove("open");
+if(r==="how"||r==="features")setTimeout(()=>document.getElementById(r)?.scrollIntoView({behavior:"smooth"}),30);else if(!UI.keep)scrollTo(0,0);UI.keep=0}
+const $=s=>document.querySelector(s);
+const A={go(v){if(location.hash==="#"+v)render();else location.hash=v},menu(){$("#nav").classList.toggle("open")},cat(v){UI.cat=v;UI.keep=1;render()},occ(v){UI.occ=v;UI.keep=1;render()},col(v){UI.col=v;UI.keep=1;render()},
+gen(){const o=gen(S.items,UI.occ,UI.col,UI.pin,Math.random);UI.out=o;UI.none=!o;UI.keep=1;render()},
+fav(){const k=key(UI.out),i=S.favs.findIndex(f=>f.ids.join(",")===k);if(i>=0)S.favs.splice(i,1);else{S.favs.push({ids:UI.out.map(x=>x.id),occ:UI.occ});toast("Outfit saved")}save();UI.keep=1;render()},unfav(v){S.favs.splice(+v,1);save();UI.keep=1;render()},
+add(){UI.m={};render()},edit(v){UI.m={...S.items.find(i=>i.id===v)};render()},close(){UI.m=null;render()},
+del(v){S.items=S.items.filter(i=>i.id!==v);S.favs=S.favs.filter(f=>f.ids.every(id=>S.items.some(i=>i.id===id)));save();UI.out=null;UI.keep=1;render();toast("Clothing deleted")},
+samples(){S.items=S.items.concat(SAMPLE.map(s=>({...s,id:"u"+Date.now()+s.id})));save();render();toast("13 sample pieces added")},
+signin(){UI.m={kind:"name"};render()},savename(){S.name=$("#nm").value.trim();save();UI.m=null;render()},pick(){$("#file").click()},
+saveitem(){const m=UI.m,n=$("#fn").value.trim();if(!n){toast("Enter a name for this piece");return}const d={name:n,cat:$("#fc").value,color:$("#fcol").value,img:m.img||""};if(m.id)Object.assign(S.items.find(i=>i.id===m.id),d);else S.items.push({id:"u"+Date.now(),...d});save();UI.m=null;UI.keep=1;render();toast("Clothing saved")}};
+document.addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(a){e.preventDefault();A[a.dataset.act]?.(a.dataset.v)}});
+document.addEventListener("change",e=>{const t=e.target;if(t.dataset.pin){UI.pin[t.dataset.pin]=t.value}
+if(t.id==="file"&&t.files[0]){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,480/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);UI.m.img=c.toDataURL("image/jpeg",.75);$("#up").innerHTML=`<img src="${UI.m.img}" alt="Preview">`};im.src=r.result};r.readAsDataURL(t.files[0])}});
+addEventListener("hashchange",render);render();
+</script></body></html>
